@@ -11,7 +11,7 @@ async function getProtoFile(protoFile) {
 }
 
 async function main() {
-    const packageDefinition = await getProtoFile('../grpc-app/src/main/proto/helloworld.proto');
+    const packageDefinition = await getProtoFile('../java-grpc/src/main/proto/helloworld.proto');
     const { api } = grpc.loadPackageDefinition(packageDefinition);
     const client = new api.HelloWorld('localhost:50051', grpc.credentials.createInsecure());
     client.Hello({ message: 'hello world'}, (err, response) => {
