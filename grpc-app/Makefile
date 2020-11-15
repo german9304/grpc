@@ -1,5 +1,11 @@
 generate_proto_definition:
-	protobuf:compile
+	mvn protobuf:compile
 
 generate_proto:
-	protobuf:compile-custom
+	mvn protobuf:compile-custom
+
+install:
+	mvn install
+
+run:
+	mvn exec:java -Dexec.mainClass=com.grpc.app.App
