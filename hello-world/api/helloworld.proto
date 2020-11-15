@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/grpc/api";
+
+service GreetService {
+    rpc Hello(HelloRequest) returns (HelloResponse) {};
+    rpc User(UserRequest) returns (UserResponse) {};
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    int32 age = 3;
+}
+
+message UserRequest{}
+
+message UserResponse {
+    User user = 1;
+}
+
+message HelloRequest {
+    string message = 1;
+}
+
+message HelloResponse {
+    string message = 1;
+}
+
